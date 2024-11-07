@@ -47,7 +47,7 @@ public class AdUnit: NSObject, DispatcherDelegate {
     /// notification flag set to determine if delegate call needs to be made after timeout delegate is sent
     private var timeOutSignalSent = false
     
-    private var impressionTracker: BannerViewImpressionTracker?
+    private var bannerViewImpressionTracker = BannerViewImpressionTracker()
     private var interstitialObserver: InterstitialObserver?
     
     /// Initializes a new `AdUnit` instance with the specified configuration ID, size, and ad formats.
@@ -78,7 +78,7 @@ public class AdUnit: NSObject, DispatcherDelegate {
     
     deinit {
         dispatcher?.invalidate()
-        impressionTracker?.stop()
+        bannerViewImpressionTracker.stop()
         interstitialObserver?.stop()
     }
     
@@ -129,8 +129,7 @@ public class AdUnit: NSObject, DispatcherDelegate {
         completion: @escaping (_ bidInfo: BidInfo) -> Void
     ) {
         if let view {
-            impressionTracker = BannerViewImpressionTracker(view: view)
-            impressionTracker?.start()
+            bannerViewImpressionTracker.start(in: view)
         }
         
         if adUnitConfig.adConfiguration.isInterstitialAd {
