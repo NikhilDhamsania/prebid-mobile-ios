@@ -183,7 +183,10 @@ public class AdUnit: NSObject, DispatcherDelegate {
                     )
                 }
                 
-                if self.adUnitConfig.adConfiguration.isInterstitialAd && bidResponse.winningBid?.adFormat == .banner {
+                if self.adUnitConfig.isInterstitialImpressionTrackerActivated &&
+                    self.adUnitConfig.adConfiguration.isInterstitialAd &&
+                    bidResponse.winningBid?.adFormat == .banner {
+                    
                     self.interstitialImpressionTracker.start(
                         withTrackingURL: bidResponse.winningBid?.bid.burl,
                         creativeCacheID: bidResponse.winningBid?.targetingInfo?["hb_cache_id"]
