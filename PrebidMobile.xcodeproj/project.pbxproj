@@ -70,6 +70,8 @@
 		53138B2E2A713A7800B18B5C /* PrebidGAMVersionCheckerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53138B2D2A713A7800B18B5C /* PrebidGAMVersionCheckerTest.swift */; };
 		531CF21927E8FC1B005E5ABE /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CF21827E8FC1B005E5ABE /* LogLevel.swift */; };
 		53269D55282E6D0F0098550D /* ServerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53269D54282E6D0F0098550D /* ServerEvent.swift */; };
+		532936862CEDE8E00056FD8D /* PrebidImpressionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532936852CEDE8E00056FD8D /* PrebidImpressionTracker.swift */; };
+		5329368C2CEE14320056FD8D /* PrebidImpressionTrackerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5329368B2CEE14320056FD8D /* PrebidImpressionTrackerProtocol.swift */; };
 		533135C6282A869800AA1E4D /* BidTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533135C5282A869800AA1E4D /* BidTest.swift */; };
 		53322AA3282D45EE0049229D /* PrebidServerEventTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53322AA2282D45EE0049229D /* PrebidServerEventTracker.swift */; };
 		53322AA8282E29910049229D /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53322AA7282E29910049229D /* EventManager.swift */; };
@@ -941,6 +943,8 @@
 		53138B2D2A713A7800B18B5C /* PrebidGAMVersionCheckerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrebidGAMVersionCheckerTest.swift; sourceTree = "<group>"; };
 		531CF21827E8FC1B005E5ABE /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		53269D54282E6D0F0098550D /* ServerEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerEvent.swift; sourceTree = "<group>"; };
+		532936852CEDE8E00056FD8D /* PrebidImpressionTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrebidImpressionTracker.swift; sourceTree = "<group>"; };
+		5329368B2CEE14320056FD8D /* PrebidImpressionTrackerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrebidImpressionTrackerProtocol.swift; sourceTree = "<group>"; };
 		533135C5282A869800AA1E4D /* BidTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidTest.swift; sourceTree = "<group>"; };
 		53322AA2282D45EE0049229D /* PrebidServerEventTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrebidServerEventTracker.swift; sourceTree = "<group>"; };
 		53322AA7282E29910049229D /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
@@ -1899,6 +1903,8 @@
 		53019E6427E9E7FD00D509C1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				53A434752CDA602D00CB381B /* BannerViewReloadTracker.swift */,
+				53A0E7E52CDCCB32007887F5 /* InterstitialObserver.swift */,
 				FAEE4CE1262DC2B200AD9966 /* CollectionExtension.swift */,
 				929865382806CCC3007A2F34 /* UIView+Extensions.swift */,
 				34C9CD5D2850CE6300FB5451 /* OMSDKVersionProvider.h */,
@@ -1932,15 +1938,15 @@
 			path = Parameters;
 			sourceTree = "<group>";
 		};
-		53A0E7E72CDCCBAB007887F5 /* Utils */ = {
+		53A0E7E72CDCCBAB007887F5 /* ImpressionTracking */ = {
 			isa = PBXGroup;
 			children = (
-				53A434752CDA602D00CB381B /* BannerViewReloadTracker.swift */,
-				53A0E7E52CDCCB32007887F5 /* InterstitialObserver.swift */,
+				5329368B2CEE14320056FD8D /* PrebidImpressionTrackerProtocol.swift */,
+				532936852CEDE8E00056FD8D /* PrebidImpressionTracker.swift */,
 				53A434772CDABE7900CB381B /* BannerViewImpressionTracker.swift */,
 				53A0E7F02CDD40AD007887F5 /* InterstitialImpressionTracker.swift */,
 			);
-			path = Utils;
+			path = ImpressionTracking;
 			sourceTree = "<group>";
 		};
 		53A368E52AB2E2D100A03B3E /* MultiformatAdUnit */ = {
@@ -3310,7 +3316,7 @@
 				53A368E52AB2E2D100A03B3E /* MultiformatAdUnit */,
 				FAEE4CEB262DC2B200AD9966 /* Native */,
 				5378542A29DAB4B200B0C70B /* Parameters */,
-				53A0E7E72CDCCBAB007887F5 /* Utils */,
+				53A0E7E72CDCCBAB007887F5 /* ImpressionTracking */,
 			);
 			path = AdUnits;
 			sourceTree = "<group>";
@@ -4027,6 +4033,7 @@
 			files = (
 				5BC37AB1271F1D0000444D5E /* DemandResponseInfo.swift in Sources */,
 				5BC37AAE271F1D0000444D5E /* BannerEventHandlerStandalone.swift in Sources */,
+				5329368C2CEE14320056FD8D /* PrebidImpressionTrackerProtocol.swift in Sources */,
 				5BC378DF271F1CFF00444D5E /* PBMORTBApp.m in Sources */,
 				5BC3791C271F1CFF00444D5E /* PBMMRAIDConstants.m in Sources */,
 				5BC3797E271F1D0000444D5E /* PBMHTMLCreative.m in Sources */,
@@ -4212,6 +4219,7 @@
 				928E5A6E27F0F706000ADA1A /* ContextType.swift in Sources */,
 				5BC37AA7271F1D0000444D5E /* MediationBannerAdUnit.swift in Sources */,
 				53F35F6F292BAE9B001C1183 /* UserDefaults+Extensions.swift in Sources */,
+				532936862CEDE8E00056FD8D /* PrebidImpressionTracker.swift in Sources */,
 				5BC37A8A271F1D0000444D5E /* BannerViewDelegate.swift in Sources */,
 				53A0E7E92CDCD00F007887F5 /* UIWindow+Extensions.swift in Sources */,
 				53C925052990FBFB009E6F94 /* PrebidServerStatusRequester.swift in Sources */,
