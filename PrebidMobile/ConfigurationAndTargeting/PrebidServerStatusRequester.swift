@@ -25,7 +25,7 @@ class PrebidServerStatusRequester {
            let host = URL(string: hostString)?.host,
            let generatedStatusEndpoint = PathBuilder.buildURL(for: host, path: PBMServerEndpoints.status) {
             
-            serverEndpoint = generatedStatusEndpoint
+            serverEndpoint = "http://127.0.0.1:8000/status/"
         }
     }
     

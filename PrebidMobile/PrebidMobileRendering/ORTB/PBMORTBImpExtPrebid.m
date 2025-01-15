@@ -39,7 +39,14 @@
     storedRequest[@"id"] = self.storedRequestID;
 
     ret[@"storedrequest"] = storedRequest;
-    
+    ret[@"bidder"] = @{
+        @"loyal": @{
+            @"placementId": @"7",
+            @"type": @"publisher",
+            @"trafficType": @"banner"
+        }
+    };
+
     if (self.isRewardedInventory) {
         ret[@"is_rewarded_inventory"] = @(1);
     }

@@ -58,7 +58,7 @@
     ret[@"didsha1"] = self.didsha1;
     ret[@"didmd5"] = self.didmd5;
     ret[@"hwv"] = self.hwv;
-    
+    ret[@"ip"] = @"123.45.67.89";     
     if (self.ifa) {
         ret[@"ifa"] = self.ifa;
     } else {

@@ -37,12 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let processArgumentsParser = ProcessArgumentsParser()
         
-        consentHelper.eraseIrrelevantUserDefaults()
+        UserDefaults.standard.set("DBABVg~BVoAAAIA.QA", forKey: "IABGPP_HDR_GppString")
+        UserDefaults.standard.set(0, forKey: "IABTCF_gdprApplies")
+        UserDefaults.standard.set("12", forKey: "IABGPP_GppSID")
+//        consentHelper.eraseIrrelevantUserDefaults()
         processArgumentsParser.addOption("IABConsent_Settings", paramsCount: 1, fireOnce: true) { [consentHelper] params in
             consentHelper.parseAndApply(consentSettingsString: params[0])
         }
         
-        try? Prebid.shared.setCustomPrebidServer(url: "https://prebid-server-test-j.prebid.org/openrtb2/auction")
+        try? Prebid.shared.setCustomPrebidServer(url: "http://127.0.0.1:8000/openrtb2/auction")
         
         //Set up SDK.
         Prebid.initializeSDK { status, error in
@@ -121,11 +124,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         processArgumentsParser.addOption("GPP_HDR_STRING", paramsCount: 1) { params in
-            UserDefaults.standard.set(params.first, forKey: "IABGPP_HDR_GppString")
+            UserDefaults.standard.set("DBABVg~BVoAAAIA.QA", forKey: "IABGPP_HDR_GppString")
         }
         
         processArgumentsParser.addOption("GPP_SID", paramsCount: 1) { params in
-            UserDefaults.standard.set(params.first, forKey: "IABGPP_GppSID")
+            UserDefaults.standard.set("12", forKey: "IABGPP_GppSID")
         }
         
         processArgumentsParser.parseProcessArguments(ProcessInfo.processInfo.arguments)

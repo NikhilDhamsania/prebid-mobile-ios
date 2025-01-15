@@ -126,7 +126,7 @@
     }
     
     bidRequest.regs.coppa = self.targeting.coppa;
-    bidRequest.regs.ext[@"gdpr"] = [self.targeting getSubjectToGDPR];
+    bidRequest.regs.ext[@"gdpr"] = [self.targeting getSubjectToGDPR];    
     bidRequest.regs.gpp = InternalUserConsentDataManager.gppHDRString;
     bidRequest.ortbObject = [self.adConfiguration getCheckedOrtbConfig];
     

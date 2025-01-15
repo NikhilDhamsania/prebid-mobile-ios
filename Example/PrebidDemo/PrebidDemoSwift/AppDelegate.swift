@@ -34,8 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.setAnimationsEnabled(false)
         }
         // Set account id and custom Prebid server URL
-        Prebid.shared.prebidServerAccountId = "0689a263-318d-448b-a3d4-b02e8a709d9d"
-        try! Prebid.shared.setCustomPrebidServer(url: "https://prebid-server-test-j.prebid.org/openrtb2/auction")
+        Prebid.shared.prebidServerAccountId = "2"
+        
+        try! Prebid.shared.setCustomPrebidServer(url: "http://localhost:8000/openrtb2/auction")
         
         // Initialize Prebid SDK
         Prebid.initializeSDK(gadMobileAdsVersion: GADGetStringFromVersionNumber(GADMobileAds.sharedInstance().versionNumber)) { status, error in
